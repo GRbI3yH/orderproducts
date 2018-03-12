@@ -6,7 +6,7 @@ import ru.grbi3yh.orderproducts.repositories.entities.Order;
 
 import java.util.List;
 
-public class OrderRest {
+public class OrdersRest {
 
     private OrdersFacade ordersFacade;
 
