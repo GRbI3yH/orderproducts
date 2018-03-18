@@ -1,0 +1,25 @@
+<div class="main-div">
+    <h1>Заказы</h1>
+</div>
+<div class="container-div">
+    <table class="product-table" border="1">
+        <tr class="product-table-background">
+            <td>Код товара</td>
+            <td>Нименование</td>
+            <td>Поставщик</td>
+            <td>Категория</td>
+            <td>Кол-во</td>
+            <td>Цена</td>
+            <td>Производитель</td>
+        </tr>
+        <tr ng-repeat="product in products">
+            <td>{{product.code}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.provider}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.amount}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.manufacturer}}</td>
+        </tr>
+    </table>
+</div>

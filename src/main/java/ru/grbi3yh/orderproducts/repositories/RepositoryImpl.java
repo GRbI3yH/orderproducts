@@ -3,6 +3,7 @@ package ru.grbi3yh.orderproducts.repositories;
 import ru.grbi3yh.orderproducts.repositories.entities.BaseEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
@@ -11,6 +12,7 @@ import static java.util.Objects.isNull;
 
 public abstract class RepositoryImpl<E extends BaseEntity> implements Repository<E> {
 
+    @PersistenceContext(unitName = "EntityManager")
     private EntityManager em;
 
     private final Class<E> entityClass;

@@ -1,22 +1,22 @@
-package ru.grbi3yh.orderproducts.facade.impl;
+package ru.grbi3yh.orderproducts.service.impl;
 
-import ru.grbi3yh.orderproducts.facade.ProductsFacade;
 import ru.grbi3yh.orderproducts.repositories.ProductCriteria;
 import ru.grbi3yh.orderproducts.repositories.entities.Product;
+import ru.grbi3yh.orderproducts.repositories.entityRepositories.ProductRepository;
 import ru.grbi3yh.orderproducts.service.ProductsService;
 
-import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.util.List;
 
 @Local
-@Stateless(name = "ProductsFacade")
-public class ProductsFacadeImpl implements ProductsFacade{
+@Stateless(name = "ProductsService")
+public class ProductsServiceImpl implements ProductsService {
 
-    @EJB(name = "ProductsService")
-    private ProductsService productsService;
+    @Inject
+    private ProductRepository productRepository;
 
     @Override
     public List<Product> getProductsByCriteria(ProductCriteria productCriteria) {
@@ -25,16 +25,16 @@ public class ProductsFacadeImpl implements ProductsFacade{
 
     @Override
     public Product getProducts(String id) {
-        return productsService.getProducts(id);
+        return productRepository.getById(id);
     }
 
     @Override
-    public void createProduct(Product product) {
-        productsService.createProduct(product);
+    public void createProduct(Product order) {
+        productRepository.save(order);
     }
 
     @Override
     public String getTest() {
-        return productsService.getTest();
+        return "я текст";
     }
 }

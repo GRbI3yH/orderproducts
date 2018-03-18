@@ -1,4 +1,4 @@
-package ru.grbi3yh.orderproducts.repositories.DTOs;
+package ru.grbi3yh.orderproducts.service.DTOs;
 
 /**
  * Дто для получения информации о заказах по ключам почта фио

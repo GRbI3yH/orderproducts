@@ -1,7 +1,7 @@
 group 'ru.grbi3yh.orderproducts'
-version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
 
 sourceCompatibility = 1.8
 
@@ -12,6 +12,7 @@ repositories {
 ext {
     hibernate_jpa = '5.2.15.Final'
     h2 = '1.4.196'
+    org_jboss_spec_javax_ejb_jboss_ejb_api_3_1_spec_version='1.0.2.Final';
 }
 
 dependencies {
@@ -19,7 +20,10 @@ dependencies {
     compile("com.h2database:h2:${h2}")
     compile("org.hibernate:hibernate-core:${hibernate_jpa}")
     compile("org.hibernate:hibernate-entitymanager:${hibernate_jpa}")
+    testCompile("org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:${org_jboss_spec_javax_ejb_jboss_ejb_api_3_1_spec_version}")
+    providedCompile("org.jboss.resteasy:resteasy-jaxrs:3.0.7.Final")
+    providedCompile("org.jboss.resteasy:resteasy-multipart-provider:3.0.7.Final")
     compile group: 'javax', name: 'javaee-api', version: '7.0'
-    //compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
-    //compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    //providedCompile("org.jboss.resteasy:resteasy-jackson-provider:3.0.7.Final")
+
 }
